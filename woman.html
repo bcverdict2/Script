@@ -1,0 +1,140 @@
+<html>
+	<head>
+	  <title> Nick's first web page </title>
+		<link href="style.css" rel="stylesheet" type="text/css">﻿
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+		<a href="BoG.html" class="button">Go Back</a></li>
+		<style>
+		body{
+		  background-color: #73E983
+		}
+		</style>
+	</head>
+
+	<body>
+
+		<ul class="pager">
+			<li><button class="button" onClick=Back0() id = "Back">Back</button></li>
+			<img src="" id = "Picture0" height = "300" width = "250">
+			<li><button class="button" onClick=Next0() id = "Next">Next</button></li>
+			<br>
+			<li><button class="button" onClick=Back1() id = "Back">Back</button></li>
+			<img src="" id = "Picture1" height = "300" width = "250">
+			<li><button class="button" onClick=Next1() id = "Next">Next</button></li>
+		</ul>
+			
+			
+			
+            <script type ="text/javascript">
+			var num0 = 0;
+			var num1 = 0;
+			var size0 = 0;
+			var size1 = 0;
+			var response0;
+			var response1;
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					response1 = JSON.parse(xhttp.responseText);
+					
+					document.getElementById("Picture1").src=response1.data[num1].image.original.url;
+					size1 = response1.data.length;
+				}
+			};
+			xhttp.open("GET", "https://api.pinterest.com/v1/boards/608408299599300095/pins/?access_token=Ao-ZerAenNS-KlHi4RJKT2ex7LypFV91Iaf650lFU3EQYGBlmghxgDAAALeVRVQNW76getcAAAAA&fields=image", true);
+			xhttp.send();
+			
+			var xhttp0 = new XMLHttpRequest();
+			xhttp0.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					response0 = JSON.parse(xhttp0.responseText);
+					
+					document.getElementById("Picture0").src=response0.data[num0].image.original.url;
+					size0 = response0.data.length;
+				}
+			};
+			xhttp0.open("GET", "https://api.pinterest.com/v1/boards/608408299599300093/pins/?access_token=Ao-ZerAenNS-KlHi4RJKT2ex7LypFV91Iaf650lFU3EQYGBlmghxgDAAALeVRVQNW76getcAAAAA&fields=image", true);
+			xhttp0.send();
+			
+			
+			
+			function Back0()
+            {
+				if(num0>0)
+				{
+					num0--;
+				}
+				else
+				{
+					num0 = size0-1;
+				}
+				response0 = JSON.parse(xhttp0.responseText);
+				document.getElementById("Picture0").src=response0.data[num0].image.original.url;
+            }
+			
+			
+            function Next0()
+            {
+            	if(num0<size0)
+				{
+					num0++;
+				}
+				if(num0==size0)
+				{
+					num0 = 0;
+				}
+				response0 = JSON.parse(xhttp0.responseText);
+				document.getElementById("Picture0").src=response0.data[num0].image.original.url;
+            }
+			
+            function Back1()
+            {
+              if(num1>0)
+              {
+              	num1--;
+              }
+			  else
+			  {
+				num1 = size1-1;
+			  }
+				response1 = JSON.parse(xhttp.responseText);
+				document.getElementById("Picture1").src=response1.data[num1].image.original.url;
+            }
+            function Next1()
+            {
+				if(num1<size1)
+				{
+					num1++;
+				}
+				if(num1==size1)
+				{
+					num1 = 0;
+				}
+				response1 = JSON.parse(xhttp.responseText);
+				document.getElementById("Picture1").src=response1.data[num1].image.original.url;
+            }
+            
+			//pinterest
+			window.pAsyncInit = function() {
+				PDK.init({
+					appId: "<4995460726834357658>", // Change this
+					cookie: true
+				});
+			};
+		(function(d, s, id){
+			var js, pjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement(s); js.id = id;
+			js.src = "//assets.pinterest.com/sdk/sdk.js";
+			pjs.parentNode.insertBefore(js, pjs);
+		}(document, 'script', 'pinterest-jssdk'));
+        </script>
+		
+		
+	</body>
+</html>

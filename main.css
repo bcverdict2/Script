@@ -1,0 +1,65 @@
+body{
+	font-family:arial;
+	margin:0;
+}
+h1,h3{
+	color:#555;
+	margin:0;
+}
+a{
+	color:white;
+	margin:0;
+}
+p{
+	background:#666;
+	color:white;
+	margin:0;
+}
+.secondary{
+	background: none;
+	color:#777;
+	margin:0;
+}
+#nav{
+	background: none;
+	color:#777;
+	margin:0;
+}
+
+a:hover
+{
+    color: pink;
+}
+header{
+	margin:0;
+	background:#999;
+	color:white;
+	padding: 15px 15px 0 15px;
+}
+header h1{
+	text-shadow: 	3px 2px black;
+	font-family: Times;
+	color: #0000A0;
+	font-size: 35px;
+	display:inline;
+	margin:0;
+}
+p1{
+color: #0000A0;
+font-size: 20px;
+font-family: Times;
+}
+
+p2{
+		background-color: #4CAF50;
+	    border: none;
+	    color: white;
+	    padding: 15px 32px;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    font-size: 15px;
+}
+footer{
+	clear: both;
+}
